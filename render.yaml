@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: scopus-decanatura
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn dashboard.index:server --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11.0"

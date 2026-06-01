@@ -13,3 +13,4 @@ python-Levenshtein
 openpyxl
 jupyter
 pytest
+gunicorn
